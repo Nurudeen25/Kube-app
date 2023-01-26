@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: vvprodb
+  name: vprodb
   labels:
-    app: vvprodb
+    app: vprodb
 spec:
   selector:
     matchLabels:
-      app: vvprodb
+      app: vprodb
   replicas: 1
   template:
     metadata:
       labels:
-        app: vvprodb
+        app: vprodb
     spec:
       containers:
-        - name: vvprodb
+        - name: vprodb
           image: deenprofile/vprofiledb:V1
           args:
             - "ignore-db-dir=lost+found"
@@ -36,5 +36,5 @@ spec:
       volumes:
         - name: vpro-db-data
           awsElasticBlockStore:
-            volumeID: vol-0bfb9c1bed242190b
+            volumeID: vol-0dc727a7eddb6aab5
             fsType: ext4
