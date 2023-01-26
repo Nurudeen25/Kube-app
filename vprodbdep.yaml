@@ -13,6 +13,7 @@ spec:
     metadata:
       labels:
         app: vprodb
+        version: v01
     spec:
       containers:
         - name: vprodb
