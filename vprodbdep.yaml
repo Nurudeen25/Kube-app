@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: vvprodb
@@ -17,11 +17,6 @@ spec:
       containers:
         - name: vvprodb
           image: deenprofile/vprofiledb:V1
-          tolerations:
-            - key: "taintkey1"
-              operator: "Equal"
-              value: "taintvalue1"
-              effect: "NoSchedule"
           volumeMounts:
             - mountPath: /var/lib/mysql
               name: vpro-db-data
