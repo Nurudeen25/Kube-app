@@ -1,24 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: vprodb
+  name: vvprodb
   labels:
-    app: vprodb
+    app: vvprodb
 spec:
   selector:
     matchLabels:
-      app: vprodb
+      app: vvprodb
   replicas: 1
   template:
     metadata:
       labels:
-        app: vprodb
+        app: vvprodb
     spec:
       containers:
-        - name: vprodb
+        - name: vvprodb
           image: deenprofile/vprofiledb:V1
-          args:
-            - "ignore-db-dir=lost+found"
           volumeMounts:
             - mountPath: /var/lib/mysql
               name: vpro-db-data
