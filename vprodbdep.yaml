@@ -13,16 +13,13 @@ spec:
     metadata:
       labels:
         app: vprodb
-        version: v01
     spec:
       containers:
         - name: vprodb
           image: deenprofile/vprofiledb:V1
-        - tolerations:
-          - effect: NoSchedule
-            key: taintkey1
-            operator: Equal
-            value: taintvalue1
+          args:
+              - "--ignore-db-dir"
+              - "lost+found"
           volumeMounts:
             - mountPath: /var/lib/mysql
               name: vpro-db-data
@@ -40,5 +37,5 @@ spec:
       volumes:
         - name: vpro-db-data
           awsElasticBlockStore:
-            volumeID: vol-0dc727a7eddb6aab5
+            volumeID: vol-0b34e1677f16525d2
             fsType: ext4
